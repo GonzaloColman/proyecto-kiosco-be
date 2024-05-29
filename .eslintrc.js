@@ -23,3 +23,10 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
   },
 };
+{
+  "rules" ,{
+    "prettier/prettier": ["error", {
+      "endOfLine":"auto"
+    }]
+  }
+};
