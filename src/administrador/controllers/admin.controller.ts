@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { Controller, UseGuards } from '@nestjs/common';
 import { JwtMiddlewareGuard } from 'src/common/middleware/auth-guard';
 
 @Controller('/admin/')
