@@ -17,15 +17,19 @@ export class RegisterService {
   }
 
   async register(user: any): Promise<any> {
-    const encriptedPassword = await this.generateHash(user.password);
-
-    await this.dbService.executeQuery(usuarioQueries.registerUser, [
-      user.email,
-      encriptedPassword,
-      1,
-      2,
-    ]);
-
-    return user.email;
+    try {
+      const encriptedPassword = await this.generateHash(user.password);
+      await this.dbService.executeQuery(usuarioQueries.registerUser, [
+        user.email,
+        encriptedPassword,
+        1,
+        2,
+      ]);
+      return user.email;
+    } catch (error) {
+      // Maneja el error aquí (por ejemplo, lanza una excepción o devuelve un mensaje de error)
+      console.error('Error al registrar usuario:', error);
+      throw new Error('Error al registrar usuario');
+    }
   }
 }

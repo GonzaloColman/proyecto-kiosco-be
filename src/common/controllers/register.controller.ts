@@ -6,7 +6,15 @@ export class RegisterController {
   constructor(private registerService: RegisterService) {}
 
   @Post()
-  async Register(@Body() body: { email: string; password: string }) {
+  async Register(
+    @Body()
+    body: {
+      email: string;
+      password: string;
+      name: string;
+      direccion: string;
+    },
+  ) {
     const username = await this.registerService.register(body);
     return { message: `Usuario ${username} creado con éxito` };
   }
