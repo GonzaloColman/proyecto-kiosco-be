@@ -15,7 +15,7 @@ export class DBService {
   constructor() {
     this.pool = createPool({
       port: 3306,
-      database: 'entrepalabras',
+      database: 'proyecto_kiosco',
       password: 'root',
       host: 'localhost',
       user: 'root',
